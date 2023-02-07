@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import com.example.github.R
 import com.example.github.databinding.FragmentProfileBinding
+import com.example.github.ui.fragment.repository.RepositoryFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,8 +45,9 @@ class ProfileFragment : Fragment() {
 
 
     }
-
-
+    companion object {
+        fun newInstance() = ProfileFragment()
+    }
 
 
 }

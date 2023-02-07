@@ -5,7 +5,7 @@ import com.example.domain.model.GitRepo
 import com.example.domain.repository.IGitRepoRemoteRepository
 
 class GitRepoDataUseCase(private val iGitRepoRemoteRepository: IGitRepoRemoteRepository) {
-    suspend operator fun invoke(userName:String): NetworkResult<Unit> {
+    suspend operator fun invoke(userName:String): NetworkResult<List<GitRepo>> {
         return iGitRepoRemoteRepository.getGitRepo(userName)
     }
 }

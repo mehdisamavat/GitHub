@@ -11,8 +11,8 @@ class GitHubViewPagerAdapter(fragmentActivity: FragmentActivity) :
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {
-            0 -> ProfileFragment()
-            else -> RepositoryFragment()
+            0 -> ProfileFragment.newInstance()
+            else -> RepositoryFragment.newInstance()
         }
     }
 

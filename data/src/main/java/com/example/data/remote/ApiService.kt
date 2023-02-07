@@ -1,6 +1,7 @@
 package com.example.data.remote
 
 import com.example.data.remote.model.profile.Profile
+import com.example.data.remote.model.repo.RepoItem
 import com.example.domain.NetworkResult
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -14,8 +15,8 @@ interface ApiService {
     suspend fun getGitProfile(@Path("userName") userName: String): NetworkResult<Profile>
 
 
-    @POST("/users/{userName}/repos")
-    suspend fun getGitRepo(@Path("userName") userName: String): NetworkResult<Unit>
+    @GET("/users/{userName}/repos")
+    suspend fun getGitRepo(@Path("userName") userName: String): NetworkResult<List<RepoItem>>
 
 
 }
