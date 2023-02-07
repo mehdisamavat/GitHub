@@ -24,7 +24,7 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideGitRepoRemoteRepository(apiService: ApiService): IGitRepoRemoteRepository = GitRepoRemoteRepository(apiService)
+    fun provideGitRepoRemoteRepository(apiService: ApiService,gitRepoDao: GitRepoDao): IGitRepoRemoteRepository = GitRepoRemoteRepository(apiService,gitRepoDao)
 
     @Provides
     @Singleton

@@ -12,7 +12,8 @@ object GitMapper {
     fun GitRepoEntity?.toDomain(): GitRepo? {
         return this?.let {
 //            GitRepo(name,full_name,description,private,open_issues,watchers,fork)
-            GitRepo(name,"","",false,0,0,false)
+//            GitRepo(name,"","",false,0,0,false, isBookMark = false)
+            GitRepo(id,name,full_name,description?:"",open_issues,watchers,fork,isBookMark)
 
         }
     }
@@ -20,13 +21,13 @@ object GitMapper {
     fun GitRepo?.toEntity(): GitRepoEntity? {
         return this?.let {
 //            GitRepoEntity(name=name, full_name = full_name, description = description, private = private, open_issues = open_issues, watchers = watchers, fork = fork)
-            GitRepoEntity(name=name, id = 0, checked = false)
+            GitRepoEntity(id,name,full_name,description?:"",open_issues,watchers,fork,isBookMark)
         }
     }
 
     fun RepoItem?.toDomain(): GitRepo? {
         return this?.let {
-            GitRepo(name,full_name,description?:"",private, open_issues, watchers, fork )
+            GitRepo(id,name,full_name,description?:"",open_issues,watchers,fork,isBookMark = false )
         }
     }
 

@@ -40,7 +40,6 @@ class ProfileFragment : Fragment() {
 
         viewModel.stateResponse.observe(viewLifecycleOwner){
             Toast.makeText(requireActivity(),it,Toast.LENGTH_SHORT).show()
-
         }
 
 
