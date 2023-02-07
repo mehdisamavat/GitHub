@@ -5,4 +5,8 @@
     <string name="watchers">Watchers</string>
     <string name="profile">Profile</string>
     <string name="repository">Repository</string>
+    <string name="follower_following">%d followers . %d2 following</string>
+    <string name="repos_gists">Repository %d . Gist %d2</string>
+
+
 </resources>

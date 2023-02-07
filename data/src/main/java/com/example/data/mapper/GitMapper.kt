@@ -36,7 +36,7 @@ object GitMapper {
 
     fun Profile?.toDomain(): GitProfile? {
         return this?.let {
-            GitProfile(login,name,bio,avatar_url,location,followers,following,public_repos,public_gists)
+            GitProfile(login,name,bio,avatar_url,location,followers,following)
         }
     }
 

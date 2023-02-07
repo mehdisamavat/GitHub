@@ -8,6 +8,4 @@ data class GitProfile(
     val location: String,
     val followers: Int,
     val following: Int,
-    val public_repos:Int,
-    val public_gists:Int
 )

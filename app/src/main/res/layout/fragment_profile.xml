@@ -1,15 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profile"
+            type="com.example.domain.model.GitProfile" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/mMargin"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/mPadding">
 
-        <TextView
-            android:id="@+id/textview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Hello" />
+        <ImageView
+            android:id="@+id/imAvatar"
+            imageUrl="@{profile.avatar_url}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_profile_avatar"
+            android:src="@drawable/baseline_account_circle_24"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.4"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/lMargin"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/lMargin"
+            android:text="@{profile.name}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/lFontSize"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvProfileUserName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imAvatar"
+            tools:text="@tools:sample/lorem"
+
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfileUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@{profile.userName}"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/sFontSize"
+            app:layout_constraintBottom_toTopOf="@+id/tvProfileBio"
+            app:layout_constraintStart_toStartOf="@+id/tvProfileName"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileName"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfileBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mMargin"
+            android:gravity="start"
+            android:text="@{profile.bio}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sFontSize"
+
+            app:layout_constraintBottom_toTopOf="@+id/tvProfileLocation"
+            app:layout_constraintStart_toStartOf="@+id/tvProfileName"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileUserName"
+            tools:text="@tools:sample/lorem" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfileLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sMargin"
+            android:drawableStart="@drawable/baseline_location_on_16"
+            android:gravity="center_vertical|start"
+            android:text="@{profile.location}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sFontSize"
+            app:layout_constraintStart_toStartOf="@+id/tvProfileName"
+            app:layout_constraintTop_toBottomOf="@+id/tvProfileBio"
+            tools:text="@tools:sample/lorem" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfileFollower"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mMargin"
+            android:drawableStart="@drawable/baseline_group_24"
+            android:drawablePadding="@dimen/sPadding"
+            android:gravity="center"
+            android:text="@{String.format(@string/follower_following, profile.followers,profile.following)}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sFontSize"
+            app:layout_constraintEnd_toEndOf="@+id/imAvatar"
+            app:layout_constraintTop_toBottomOf="@+id/imAvatar"
+            tools:text="@string/follower_following" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
