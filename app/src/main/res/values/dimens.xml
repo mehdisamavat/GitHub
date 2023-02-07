@@ -16,9 +16,12 @@
     <dimen name="lMargin">30dp</dimen>
 
 
-    <dimen name="sFontSize">14sp</dimen>
+    <dimen name="sFontSize">12sp</dimen>
     <dimen name="mFontSize">15sp</dimen>
     <dimen name="lFontSize">18sp</dimen>
+
+
+
 
 
 

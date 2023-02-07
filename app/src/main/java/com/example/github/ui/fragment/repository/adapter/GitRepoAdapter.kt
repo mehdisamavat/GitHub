@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.GitRepo
-import com.example.github.databinding.RvItemGitRepoBinding
+import com.example.github.databinding.RvItemRepoBinding
 import com.example.github.ui.fragment.repository.RepositoryViewModel
 
 class GitRepoAdapter(
@@ -15,7 +15,12 @@ class GitRepoAdapter(
     private val viewLifecycleOwner: LifecycleOwner,
 ) : RecyclerView.Adapter<GitRepoViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitRepoViewHolder {
-        return GitRepoViewHolder(RvItemGitRepoBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return GitRepoViewHolder(
+            RvItemRepoBinding.inflate(
+                LayoutInflater.from(parent.context),
+                parent,
+                false
+            )
         )
     }
 

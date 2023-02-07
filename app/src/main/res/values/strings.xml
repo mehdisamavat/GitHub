@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">GitHub</string>
     <string name="bookmark">BookMark</string>
+    <string name="open_issues">Open Issues</string>
+    <string name="watchers">Watchers</string>
+    <string name="profile">Profile</string>
+    <string name="repository">Repository</string>
 </resources>

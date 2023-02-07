@@ -11,7 +11,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.github.ui.fragment.bookmark.BookmarkViewModel" />
+            type="com.example.github.ui.fragment.repository.RepositoryViewModel" />
 
         <import type="android.view.View" />
 
@@ -71,6 +71,65 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvRepoFullName"
             tools:text="@tools:sample/lorem" />
+
+        <LinearLayout
+            android:id="@+id/llRepoOpenIssues"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/mMargin"
+            app:layout_constraintEnd_toStartOf="@+id/llRepoWatchers"
+            app:layout_constraintTop_toBottomOf="@+id/tvRepoDescription">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRepoOpenIssues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/open_issues"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/sFontSize"
+                tools:text="@string/open_issues" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRepoOpenIssuesNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{``+gitRepo.open_issues}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/sFontSize" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llRepoWatchers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="@+id/llRepoOpenIssues">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRepoWatchers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/watchers"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/sFontSize"
+                tools:text="@string/watchers" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRepoWatchersNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@{``+gitRepo.watchers}"
+                android:textColor="@color/gray"
+                android:textSize="@dimen/sFontSize" />
+        </LinearLayout>
 
 
         <ImageView

@@ -10,10 +10,9 @@ data class RepoEntity(
     val name: String,
     val full_name: String,
     @ColumnInfo(defaultValue = "Does not have any description!")
-    val description: String,
+    val description: String="Does not have any description!",
     val open_issues: Int,
     val watchers: Int,
-    val fork: Boolean,
     @ColumnInfo(defaultValue = "false")
     val isBookmark: Boolean
 )

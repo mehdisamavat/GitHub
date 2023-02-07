@@ -7,6 +7,5 @@ data class GitRepo(
     val description: String,
     val open_issues: Int,
     val watchers: Int,
-    val fork: Boolean,
     var isBookmark:Boolean
     )

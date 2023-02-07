@@ -23,7 +23,6 @@ class BookmarkFragment : Fragment() {
     private  val viewModel: BookmarkViewModel by viewModels()
     private lateinit var binding:FragmentBookmarkBinding
     private lateinit var bookmarkAdapter: BookmarkAdapter
-    var items: ArrayList<GitRepo> = arrayListOf()
 
 
     override fun onCreateView(
@@ -38,20 +37,14 @@ class BookmarkFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bookmarkAdapter = BookmarkAdapter(viewModel,viewLifecycleOwner )
 
-
         binding.rvBookmark.apply {
-            layoutManager = LinearLayoutManager(requireActivity(), RecyclerView.VERTICAL, false)
             adapter = bookmarkAdapter
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
-
 
         viewModel.bookMarkRepo.observe(viewLifecycleOwner) {
             bookmarkAdapter.differ.submitList(it)
         }
-    }
-
-    companion object {
-        fun newInstance() = BookmarkFragment()
     }
 
 }

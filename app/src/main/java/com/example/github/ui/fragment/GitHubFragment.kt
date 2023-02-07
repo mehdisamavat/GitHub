@@ -2,12 +2,10 @@ package com.example.github.ui.fragment
 
 import android.os.Bundle
 import android.view.*
-import androidx.fragment.app.Fragment
-import androidx.core.content.ContextCompat
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.github.R
 import com.example.github.databinding.FragmentGitHubBinding
@@ -20,7 +18,7 @@ class GitHubFragment : Fragment() {
     private lateinit var binding: FragmentGitHubBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        ( requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
+        (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.main_toolbar_menu, menu)
             }
@@ -34,17 +32,19 @@ class GitHubFragment : Fragment() {
                     else -> return false
                 }
             }
+
             override fun onMenuClosed(menu: Menu) {
                 super.onMenuClosed(menu)
                 menu.clear()
             }
         })
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_git_hub, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_git_hub, container, false)
         return binding.root
     }
 
@@ -56,12 +56,11 @@ class GitHubFragment : Fragment() {
         binding.viewPager.adapter = viewPagerAdapter
 
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
-            val tabNames = listOf("Profile", "Repository")
+            val tabNames = listOf(getString(R.string.profile), getString(R.string.repository))
             tab.text = tabNames[position]
         }.attach()
 
     }
-
 
 
 }

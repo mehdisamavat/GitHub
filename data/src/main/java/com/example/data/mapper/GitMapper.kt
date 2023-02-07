@@ -9,30 +9,27 @@ import com.example.domain.model.GitRepo
 object GitMapper {
     fun RepoEntity?.toDomain(): GitRepo? {
         return this?.let {
-//            GitRepo(name,full_name,description,private,open_issues,watchers,fork)
-//            GitRepo(name,"","",false,0,0,false, isBookMark = false)
-            GitRepo(id,name,full_name,description?:"",open_issues,watchers,fork,isBookmark)
+            GitRepo(id,name,full_name,description?:"",open_issues,watchers,isBookmark)
 
         }
     }
 
     fun GitRepo?.toEntity(): RepoEntity? {
         return this?.let {
-//            GitRepoEntity(name=name, full_name = full_name, description = description, private = private, open_issues = open_issues, watchers = watchers, fork = fork)
-            RepoEntity(id,name,full_name,description?:"",open_issues,watchers,fork,isBookmark)
+            RepoEntity(id,name,full_name,description?:"",open_issues,watchers,isBookmark)
         }
     }
 
     fun RepoItem?.toDomain(): GitRepo? {
         return this?.let {
-            GitRepo(id,name,full_name,description?:"",open_issues,watchers,fork,isBookmark = false )
+            GitRepo(id,name,full_name,description?:"Does not have any description!",open_issues,watchers,isBookmark = false )
         }
     }
 
 
     fun RepoItem?.toEntity(): RepoEntity? {
         return this?.let {
-            RepoEntity(id,name,full_name,description?:"",open_issues,watchers,fork,isBookmark = false )
+            RepoEntity(id,name,full_name,description?:"",open_issues,watchers,isBookmark = false )
         }
     }
 

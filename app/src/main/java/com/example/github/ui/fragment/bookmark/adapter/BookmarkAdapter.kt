@@ -2,20 +2,23 @@ package com.example.github.ui.fragment.bookmark.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.GitRepo
+import com.example.github.R
 import com.example.github.databinding.RvItemBookmarkBinding
 import com.example.github.ui.fragment.bookmark.BookmarkViewModel
-import com.example.github.ui.fragment.repository.RepositoryViewModel
 
-class BookmarkAdapter(private val viewModel: BookmarkViewModel,
-                      private val viewLifecycleOwner: LifecycleOwner) :
+class BookmarkAdapter(
+    private val viewModel: BookmarkViewModel,
+    private val viewLifecycleOwner: LifecycleOwner,
+) :
     RecyclerView.Adapter<BookmarkViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookmarkViewHolder {
-        return BookmarkViewHolder(RvItemBookmarkBinding.inflate(LayoutInflater.from(parent.context)))
+        return BookmarkViewHolder(DataBindingUtil.inflate(LayoutInflater.from(parent.context), R.layout.rv_item_bookmark, parent, false))
     }
 
     override fun getItemCount(): Int {
