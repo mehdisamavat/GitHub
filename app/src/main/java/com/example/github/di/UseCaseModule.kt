@@ -1,16 +1,14 @@
 package com.example.github.di
 
-import com.example.domain.repository.IFavLocalRepository
-import com.example.domain.repository.IGitProfileRepository
-import com.example.domain.repository.IGitRepoRemoteRepository
+import com.example.domain.repository.IRepoLocalRepository
+import com.example.domain.repository.IProfileRepository
+import com.example.domain.repository.IRepoRemoteRepository
 import com.example.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.android.scopes.ViewModelScoped
-import dagger.hilt.components.SingletonComponent
-import javax.inject.Singleton
 
 @Module
 @InstallIn(ViewModelComponent::class)
@@ -19,28 +17,22 @@ object UseCaseModule {
 
     @Provides
     @ViewModelScoped
-    fun provideGetFavRepoUseCase(iFavLocalRepository: IFavLocalRepository) =
-        GetFavRepoUseCase(iFavLocalRepository)
+    fun provideGetFavRepoUseCase(iRepoLocalRepository: IRepoLocalRepository) =
+        GetAllLocalRepoUseCase(iRepoLocalRepository)
 
     @Provides
     @ViewModelScoped
-    fun provideDeleteFavRepoUseCase(iFavLocalRepository: IFavLocalRepository) =
-        DeleteFavRepoUseCase(iFavLocalRepository)
-
-
-    @Provides
-    @ViewModelScoped
-    fun provideAddFavRepoUseCase(iFavLocalRepository: IFavLocalRepository) =
-        AddFavRepoUseCase(iFavLocalRepository)
+    fun provideAddFavRepoUseCase(iRepoLocalRepository: IRepoLocalRepository) =
+        UpdateLocalBookmarkUseCase(iRepoLocalRepository)
 
 
     @Provides
     @ViewModelScoped
-    fun provideGitProfileUseCase(iGitProfileRepository: IGitProfileRepository) = GitProfileUseCase(iGitProfileRepository)
+    fun provideGitProfileUseCase(iProfileRepository: IProfileRepository) = GetRemoteProfileUseCase(iProfileRepository)
 
     @Provides
     @ViewModelScoped
-    fun provideGitRepoDataUseCase(iGitRepoRemoteRepository: IGitRepoRemoteRepository) =
-        GitRepoDataUseCase(iGitRepoRemoteRepository)
+    fun provideGitRepoDataUseCase(iRepoRemoteRepository: IRepoRemoteRepository) =
+        GetRemoteRepoUseCase(iRepoRemoteRepository)
 
 }

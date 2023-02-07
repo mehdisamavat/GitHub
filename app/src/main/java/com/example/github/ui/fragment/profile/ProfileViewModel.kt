@@ -1,22 +1,20 @@
 package com.example.github.ui.fragment.profile
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.remote.handler.onError
 import com.example.data.remote.handler.onException
 import com.example.data.remote.handler.onSuccess
 import com.example.domain.model.GitProfile
-import com.example.domain.usecase.GitProfileUseCase
+import com.example.domain.usecase.GetRemoteProfileUseCase
 import com.example.github.ui.util.SingleLiveEvent
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ProfileViewModel @Inject constructor(private val getProfileUseCase: GitProfileUseCase): ViewModel() {
+class ProfileViewModel @Inject constructor(private val getProfileUseCase: GetRemoteProfileUseCase): ViewModel() {
 
     val stateResponse = SingleLiveEvent<String>()
     val profile=SingleLiveEvent<GitProfile>()

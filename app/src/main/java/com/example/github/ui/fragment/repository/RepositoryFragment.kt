@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.GitRepo
 import com.example.github.R
 import com.example.github.databinding.FragmentRepositoryBinding
-import com.example.github.ui.fragment.profile.ProfileFragment
 import com.example.github.ui.fragment.repository.adapter.GitRepoAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +22,6 @@ class RepositoryFragment : Fragment() {
     private lateinit var binding:FragmentRepositoryBinding
     private  val viewModel: RepositoryViewModel by viewModels()
     private lateinit var gitRepoAdapter: GitRepoAdapter
-    var items: ArrayList<GitRepo> = arrayListOf()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -36,7 +34,7 @@ class RepositoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        gitRepoAdapter = GitRepoAdapter(items)
+        gitRepoAdapter = GitRepoAdapter(viewModel,viewLifecycleOwner)
 
         binding.lifecycleOwner = viewLifecycleOwner
         binding.rvGitRepo.apply {
@@ -44,9 +42,8 @@ class RepositoryFragment : Fragment() {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
 
-        viewModel.gitRepo.observe(viewLifecycleOwner){list->
-            items.addAll(list)
-            gitRepoAdapter.notifyDataSetChanged()
+        viewModel.allRepo.observe(viewLifecycleOwner){
+            gitRepoAdapter.differ.submitList(it)
         }
 
         viewModel.stateResponse.observe(viewLifecycleOwner){

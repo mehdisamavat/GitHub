@@ -1,12 +1,14 @@
 package com.example.github.ui.fragment
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.Companion.findNavController
 import com.example.github.R
 import com.example.github.databinding.FragmentGitHubBinding
 import com.example.github.ui.fragment.adapter.GitHubViewPagerAdapter
@@ -18,6 +20,25 @@ class GitHubFragment : Fragment() {
     private lateinit var binding: FragmentGitHubBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ( requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.main_toolbar_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.miBookMark -> {
+                        findNavController(this@GitHubFragment).navigate(R.id.bookmarkFragment)
+                        true
+                    }
+                    else -> return false
+                }
+            }
+            override fun onMenuClosed(menu: Menu) {
+                super.onMenuClosed(menu)
+                menu.clear()
+            }
+        })
     }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

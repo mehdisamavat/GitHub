@@ -5,12 +5,11 @@ import com.example.data.remote.ApiService
 import com.example.data.remote.handler.onError
 import com.example.data.remote.handler.onException
 import com.example.data.remote.handler.onSuccess
-import com.example.data.remote.model.profile.Profile
 import com.example.domain.NetworkResult
 import com.example.domain.model.GitProfile
-import com.example.domain.repository.IGitProfileRepository
+import com.example.domain.repository.IProfileRepository
 
-class GitProfileRemoteRepository(private val apiService: ApiService) : IGitProfileRepository {
+class ProfileRemoteRepository(private val apiService: ApiService) : IProfileRepository {
     override suspend fun getGitProfile(userName: String): NetworkResult<GitProfile> {
         var networkResult : NetworkResult<GitProfile>?=null
          apiService.getGitProfile(userName).onSuccess {

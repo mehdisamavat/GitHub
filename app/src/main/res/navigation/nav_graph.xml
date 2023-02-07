@@ -10,4 +10,8 @@
         android:name="com.example.github.ui.fragment.GitHubFragment"
         android:label="fragment_git_hub"
         tools:layout="@layout/fragment_git_hub" />
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.example.github.ui.fragment.bookmark.BookmarkFragment"
+        android:label="BookmarkFragment" />
 </navigation>

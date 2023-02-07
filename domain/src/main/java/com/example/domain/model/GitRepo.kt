@@ -8,5 +8,5 @@ data class GitRepo(
     val open_issues: Int,
     val watchers: Int,
     val fork: Boolean,
-    var isBookMark:Boolean
+    var isBookmark:Boolean
     )

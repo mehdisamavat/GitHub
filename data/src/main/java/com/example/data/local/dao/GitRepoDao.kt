@@ -1,23 +1,27 @@
 package com.example.data.local.dao
 
 import androidx.room.*
-import com.example.data.entity.GitRepoEntity
+import com.example.data.entity.RepoEntity
 import kotlinx.coroutines.flow.Flow
+
 
 @Dao
 interface GitRepoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(gitRepoEntity: GitRepoEntity): Long
+    fun insert(repoEntity: RepoEntity): Long
 
-    @Query(value = "DELETE FROM bookmarked_repo WHERE id=:id")
-    fun deleteById(id: Int): Int
+    @Query(value = "SELECT * FROM repo ")
+    fun getAllRepo(): Flow<List<RepoEntity>>
+
+    @Query(value = "SELECT * FROM repo WHERE id = :id ")
+    fun findById(id: Int): RepoEntity?
+
+    @Query("UPDATE repo SET isBookmark = :isBookmark WHERE id =:id")
+    fun updateBookmark(id: Int, isBookmark:Boolean)
 
 
-    @Query(value = "SELECT * FROM bookmarked_repo ")
-    fun getAllRepo(): Flow<List<GitRepoEntity>>
-
-    @Query(value = "SELECT * FROM bookmarked_repo WHERE id = :id ")
-    fun findById(id: Int): GitRepoEntity?
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun insertAll(order: List<RepoEntity?>?)
 
 }
