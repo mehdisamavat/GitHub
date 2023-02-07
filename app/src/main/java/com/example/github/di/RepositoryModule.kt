@@ -20,18 +20,15 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideFavLocalRepository(gitRepoDao: GitRepoDao): IFavLocalRepository =
-        FavLocalRepository(gitRepoDao)
+    fun provideFavLocalRepository(gitRepoDao: GitRepoDao): IFavLocalRepository = FavLocalRepository(gitRepoDao)
 
     @Provides
     @Singleton
-    fun provideGitRepoRemoteRepository(apiService: ApiService): IGitRepoRemoteRepository =
-        GitRepoRemoteRepository(apiService)
+    fun provideGitRepoRemoteRepository(apiService: ApiService): IGitRepoRemoteRepository = GitRepoRemoteRepository(apiService)
 
     @Provides
     @Singleton
-    fun provideSchedulerRepository(apiService: ApiService): IGitProfileRepository =
-        GitProfileRemoteRepository(apiService)
+    fun provideSchedulerRepository(apiService: ApiService): IGitProfileRepository = GitProfileRemoteRepository(apiService)
 
 
 }

@@ -1,8 +1,8 @@
 package com.example.data.repository
 
 import com.example.data.local.dao.GitRepoDao
-import com.example.data.mapper.UserMapper.toDomain
-import com.example.data.mapper.UserMapper.toEntity
+import com.example.data.mapper.GitMapper.toDomain
+import com.example.data.mapper.GitMapper.toEntity
 import com.example.domain.model.GitRepo
 import com.example.domain.repository.IFavLocalRepository
 import kotlinx.coroutines.flow.Flow
