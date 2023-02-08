@@ -1,7 +1,7 @@
 package com.example.github.di
 
-import com.example.domain.repository.IRepoLocalRepository
 import com.example.domain.repository.IProfileRepository
+import com.example.domain.repository.IRepoLocalRepository
 import com.example.domain.repository.IRepoRemoteRepository
 import com.example.domain.usecase.*
 import dagger.Module

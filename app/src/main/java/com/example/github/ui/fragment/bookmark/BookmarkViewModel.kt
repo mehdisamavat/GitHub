@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.domain.model.GitRepo
-import com.example.domain.usecase.UpdateLocalBookmarkUseCase
 import com.example.domain.usecase.GetAllLocalRepoUseCase
+import com.example.domain.usecase.UpdateLocalBookmarkUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 

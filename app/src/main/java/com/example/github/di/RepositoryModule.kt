@@ -2,11 +2,11 @@ package com.example.github.di
 
 import com.example.data.local.dao.GitRepoDao
 import com.example.data.remote.ApiService
-import com.example.data.repository.RepoLocalRepository
 import com.example.data.repository.ProfileRemoteRepository
+import com.example.data.repository.RepoLocalRepository
 import com.example.data.repository.RepoRemoteRepository
-import com.example.domain.repository.IRepoLocalRepository
 import com.example.domain.repository.IProfileRepository
+import com.example.domain.repository.IRepoLocalRepository
 import com.example.domain.repository.IRepoRemoteRepository
 import dagger.Module
 import dagger.Provides

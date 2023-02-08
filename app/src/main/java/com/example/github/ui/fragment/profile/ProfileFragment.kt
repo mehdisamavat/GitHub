@@ -1,18 +1,14 @@
 package com.example.github.ui.fragment.profile
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
 import com.example.github.R
 import com.example.github.databinding.FragmentProfileBinding
-import com.example.github.ui.fragment.repository.RepositoryFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,20 +23,20 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
-        viewModel.getProfile("mehdisamavat")
+        viewModel.getProfile(getString(R.string.default_user_name))
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner=viewLifecycleOwner
         viewModel.profile.observe(viewLifecycleOwner){
-            Log.i("mehdi",it.toString())
             binding.profile=it
         }
 
-        viewModel.stateResponse.observe(viewLifecycleOwner){
-            Toast.makeText(requireActivity(),it,Toast.LENGTH_SHORT).show()
-        }
+//        viewModel.stateResponse.observe(viewLifecycleOwner){
+//            binding.networkResult=it
+//        }
 
 
     }

@@ -8,6 +8,11 @@
         <variable
             name="profile"
             type="com.example.domain.model.GitProfile" />
+
+        <variable
+            name="viewModel"
+            type="com.example.github.ui.fragment.profile.ProfileViewModel" />
+<import type="com.example.domain.model.GitProfile"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,11 +24,11 @@
 
         <ImageView
             android:id="@+id/imAvatar"
-            imageUrl="@{profile.avatar_url}"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/bg_profile_avatar"
             android:src="@drawable/baseline_account_circle_24"
+            app:imageUrl="@{profile.avatar_url}"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,8 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/lMargin"
-            android:gravity="start"
             android:layout_marginTop="@dimen/lMargin"
+            android:gravity="start"
             android:text="@{profile.name}"
             android:textColor="@color/white"
             android:textSize="@dimen/lFontSize"

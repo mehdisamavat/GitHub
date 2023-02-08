@@ -3,9 +3,7 @@ package com.example.data.remote
 import com.example.data.remote.model.profile.Profile
 import com.example.data.remote.model.repo.RepoItem
 import com.example.domain.NetworkResult
-import retrofit2.http.Body
 import retrofit2.http.GET
-import retrofit2.http.POST
 import retrofit2.http.Path
 
 

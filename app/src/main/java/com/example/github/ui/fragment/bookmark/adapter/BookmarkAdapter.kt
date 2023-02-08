@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.GitRepo
 import com.example.github.R
-import com.example.github.databinding.RvItemBookmarkBinding
 import com.example.github.ui.fragment.bookmark.BookmarkViewModel
 
 class BookmarkAdapter(

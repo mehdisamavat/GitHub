@@ -13,3 +13,4 @@ fun loadImage(imageView: ImageView, imageUrl: String?) {
         Glide.with(imageView.context).load(imageUrl).placeholder(R.drawable.baseline_account_circle_24).circleCrop().into(imageView)
     }
 }
+
